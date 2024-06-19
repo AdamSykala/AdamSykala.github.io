@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Adam Sykała">
+  <title>Projekt Końcowy</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="container">
+    <form>
+      <label for="imie">Imię:</label>
+      <input type="text" id="imie" name="imie" required>
+
+      <label for="nazwisko">Nazwisko:</label>
+      <input type="text" id="nazwisko" name="nazwisko" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefon">Telefon:</label>
+      <input type="tel" id="telefon" name="telefon" required>
+
+      <label for="adres">Adres:</label>
+      <input type="text" id="adres" name="adres" required>
+
+      <label for="kod_pocztowy">Kod Pocztowy:</label>
+      <input type="text" id="kod_pocztowy" name="kod_pocztowy" required pattern="\d{2}-\d{3}">
+
+      <label for="miasto">Miasto:</label>
+      <input type="text" id="miasto" name="miasto" required>
+
+      <label for="dostawa">Opcje Dostawy:</label>
+      <select id="dostawa" name="dostawa" required>
+          <option value="kurier">Kurier</option>
+          <option value="paczkomat">Paczkomat</option>
+          <option value="osobisty">Odbiór osobisty</option>
+      </select>
+
+      <button type="submit">zapisz dane</button>
+    </form>
+
+    <div class="payment-options">
+      <h1 class="payment-title">Opcje Płatności</h1>
+      <ul class="payment-methods">
+        <li onclick="selectPayment('Karta kredytowa')">Karta kredytowa</li>
+        <li onclick="selectPayment('PayPal')">PayPal</li>
+        <li onclick="selectPayment('Przelew bankowy')">Przelew bankowy</li>
+        <li onclick="selectPayment('Płatność przy odbiorze')">Płatność przy odbiorze</li>
+      </ul>
+    </div>
+
+    <button type="button" class="confirm-button"><a class="confirm" href="podstrona5.html">Potwierdź Zamówienie</a></button>
+  </div>
+
+  <script>
+    function selectPayment(method) {
+      alert('Wybrana metoda płatności: ' + method);
+    }
+  </script>
+</body>
+</html>

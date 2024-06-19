@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta name="author" content="Adam Sykała">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>potwierdzenie zamówienia</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <div id="confirmation">
+            <h2>Zamówienie potwierdzone!</h2>
+            <p id="order-code">Twój kod zamówienia: <span id="code"></span></p>
+            <a href="index.html">Wróć do strony głównej</a>  
+        </div>
+        <div id="square"><img class="pacman" style="width: 500px; height: 250px;" src="pacman-149704_1280.png"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeSpan = document.getElementById('code');
+            const orderCode = generateOrderCode();
+            codeSpan.textContent = orderCode;
+
+            function generateOrderCode() {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                let code = '';
+                for (let i = 0; i < 16; i++) {
+                    code += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return code;
+            }
+            const square = document.getElementById('square');
+            let position = 0;
+            let direction = 1;
+            const speed = 5;
+            function animateSquare() {
+                position += direction * speed;
+                square.style.left = position + 'px';
+
+                
+                const containerWidth = document.querySelector('.container').offsetWidth;
+                const squareWidth = square.offsetWidth;
+
+                if (position + squareWidth >= containerWidth || position <= 0) {
+                    direction *= -1;
+                }
+
+                requestAnimationFrame(animateSquare);
+            }
+
+            animateSquare();
+        });
+    </script>
+</body>
+</html>

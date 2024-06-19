@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Adam Sykała">
+  <title>Projekt Końcowy</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div><h1>Komputer Stacjonarny</h1></div>
+    <div class="komputer">
+        <img src="komputer.jpg" id="myPicture" alt="komp"><br>
+        <button type="button" id="myBtn1">&lArr;</button> 
+        <button type="button" id="myBtn2">&rArr;</button>
+        <script>
+            let thisImg = 0; 
+            const gallery = ["komputer.jpg","komputerv1.png", "komputerv2.png" ];
+            const btn2 = document.getElementById("myBtn2");
+            btn2.addEventListener("click", function() {
+                thisImg++;
+                if (thisImg >= gallery.length) {
+                    thisImg = 0;
+                }
+                document.getElementById("myPicture").src = gallery[thisImg];
+            });
+            const btn1 = document.getElementById("myBtn1");
+            btn1.addEventListener("click", function() {
+                thisImg--;
+                if (thisImg < 0) {
+                    thisImg = gallery.length - 1;
+                }
+                document.getElementById("myPicture").src = gallery[thisImg];
+            });
+        </script>
+    </div>
+
+</body>
+</html>
